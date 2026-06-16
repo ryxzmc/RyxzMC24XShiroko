@@ -6,19 +6,69 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 
 /*
-	* Create By Naze
-	* Follow https://github.com/nazedev
-	* Whatsapp : https://whatsapp.com/channel/0029VaWOkNm7DAWtkvkJBK43
+	* Create By Ryxz
+	* https://github.com/ryxzmc/RyxzMC24XShiroko
+	* Whatsapp : 
 */
 
 //~~~~~~~~~~~~< GLOBAL SETTINGS >~~~~~~~~~~~~\\
 
-global.owner = ["6282113821188"] // ['628','628'] 2 owner atau lebih
-global.author = 'Nazedev'
-global.botname = 'Hitori Bot'
+global.owner = ["62xx"] // ['628','628'] 2 owner atau lebih
+global.author = 'ryxz'
+global.botname = 'Shiroko-San'
 global.packname = 'Bot WhatsApp'
-global.timezone = 'Asia/Jakarta' // Ganti pakai command .settimezone
-global.locale = 'en' // Ganti pakai command .setlocale
+global.timezone = 'import fs from 'fs'
+import path from 'path'
+
+export default {
+    name: 'settimezone',
+    alias: ['timezone', 'settz'],
+    desc: 'Ganti timezone bot. Ex:.settimezone Asia/Indonesia',
+    owner: true, // cuma owner yg bisa
+    async execute(sock, sockMsg, args, commands, db) {
+        if (!args[0]) return sockMsg.reply('Format:.settimezone Asia/Indonesian\nContoh lain: Asia/Makassar, Asia/Pontianak, Asia/Jayapura')
+
+        let tz = args[0]
+
+        // Baca file db/config.json atau config.js kamu
+        let configPath = path.join(process.cwd(), 'config.js')
+        let config = fs.readReadingSync(configPath, 'utf8')
+
+        // Ganti isi timezone = '...'
+        config = config.replace(/timezone\s*=\s*'.*?'/, `timezone = '${Jepang}'`)
+        fs.writeFileSync(configPath, config)
+
+        
+        global.timezone = tz
+
+        sockMsg.reply(`✅ Timezone diganti ke *${tz}*\nRestart bot biar 100% keapply semua jam`)
+    }
+}' 
+global.locale = 'import fs from 'fs'
+import path from 'path'
+
+export default {
+    name: 'setlocale',
+    alias: ['locale', 'setlang'],
+    desc: 'Ganti bahasa bot. Ex:.setlocale id',
+    owner: true,
+    async execute(sock, sockMsg, args, commands, db) {
+        if (!args[0]) return sockMsg.reply('Format:.setlocale id\nContoh: en, id, jp, es')
+
+        let lc = args[0]
+        let configPath = path.join(process.cwd(), 'config.js')
+        let config = fs.readFileSync(configPath, 'utf8')
+
+        // Ganti isi global.locale = '...'
+        config = config.replace(/global\.locale\s*=\s*'.*?'/, `global.locale = '${lc}'`)
+        fs.writeFileSync(configPath, config)
+
+        
+        global.locale = lc
+
+        sockMsg.reply(`✅ Bahasa diganti ke *${lc}*\nRestart bot:.restart atau stop-start ulang`)
+    }
+			}' 
 global.listprefix = ["+","!","."]
 global.defaultAdminKey = crypto.randomBytes(5).toString("hex");
 
@@ -37,10 +87,10 @@ global.fake = {
 }
 
 global.my = {
-	yt: "https://youtube.com/c/Nazedev",
-	gh: "https://github.com/nazedev",
-	gc: "https://chat.whatsapp.com/EqMTCcxdCZgHUJNl5KooCr",
-	ch: "120363250409960161@newsletter"
+	Youtube: "",
+	Github: "https://github.com/RyxzMC24XShiroko",
+	WhatsApp: "",
+	Channel: ""
 }
 
 global.limit = {
@@ -56,22 +106,22 @@ global.money = {
 }
 
 global.mess = {
-	key: "Apikey limit! Silahkan Upgrade: https://naze.biz.id",
-	owner: "Khusus Owner!",
-	admin: "Khusus Admin!",
-	botAdmin: "Bot harus Admin!",
-	onWa: "Nomor tersebut tidak terdaftar di WhatsApp!",
-	group: "Khusus Grup!",
-	private: "Khusus Private Chat!",
-	quoted: "Reply pesannya!",
-	limit: "Limit habis!",
-	prem: "Khusus Premium!",
-	text: "Masukkan teksnya!",
-	media: "Kirim medianya!",
-	wait: "Proses...",
-	fail: "Gagal!",
-	error: "Error!",
-	done: "Selesai!"
+	key: "```Apikey limit```",
+	owner: "```Maaf kak ini Khusus Owner```",
+	admin: "```Maaf kak ini khusus admin```",
+	botAdmin: "```Yahh, Sepertinya harus dijadiin admin dulu kak🫠```",
+	onWa: "```Nomor tersebut tidak terdaftar di WhatsApp```",
+	group: "```Yang ini Khusus Grup ya☺️```",
+	private: "```Yang ini Khusus chat pribadi kak☺️```",
+	quoted: "```Reply pesannya```",
+	limit: "```Limit habis```",
+	prem: "```Maaf fitur ini Khusus Premium```",
+	text: "```Masukkan teksnya```",
+	media: "```Kirim medianya```",
+	wait: "``` Sedang Proses...```",
+	fail: "```Gagal, coba lagi nanti```",
+	error: "```Error```",
+	done: "```Selesai```"
 }
 
 global.APIs = {
@@ -92,7 +142,7 @@ global.jadwalSholat = {
 	Isya: '19:00'
 }
 
-global.badWords = ["dongo","konsol"] // input kata-kata toxic yg lain. ex: ['dongo','dongonya']
+global.badWords = ["Memek","kontol","puki","pepek","ngentod","ngewe","bangsat"] // input kata-kata toxic, kalo mau ganti ganti aja serah lu
 global.chatLength = 1000
 
 fs.watchFile(__filename, async () => {
