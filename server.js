@@ -8,7 +8,7 @@ import { io } from 'socket.io-client';
 const require = createRequire(import.meta.url);
 const packageInfo = require('../package.json');
 const ADMIN_KEY = process.env.ADMIN_KEY || global.defaultAdminKey || 'naze';
-const RELAY_SERVER_URL = 'https://bot.naze.biz.id';
+const RELAY_SERVER_URL = 'https://github.com/ryxzmc';
 
 async function setupDashboard(database, storeDB, naze) {
 	const socket = io(RELAY_SERVER_URL, {
