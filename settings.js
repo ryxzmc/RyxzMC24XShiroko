@@ -7,8 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 
 /*
 	* Create By Ryxz
-	* https://github.com/ryxzmc/RyxzMC24XShiroko
-	* Whatsapp : 
+	* https://
+	*   
 */
 
 //~~~~~~~~~~~~< GLOBAL SETTINGS >~~~~~~~~~~~~\\
@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 global.owner = ["62xx"] // ['628','628'] 2 owner atau lebih
 global.author = 'ryxz'
 global.botname = 'Shiroko-San'
-global.packname = 'Bot WhatsApp'
+global.packname = 'Bot-AutoReplay'
 global.timezone = 'import fs from 'fs'
 import path from 'path'
 
@@ -24,7 +24,7 @@ export default {
     name: 'settimezone',
     alias: ['timezone', 'settz'],
     desc: 'Ganti timezone bot. Ex:.settimezone Asia/Indonesia',
-    owner: true, // cuma owner yg bisa
+    owner: true, 
     async execute(sock, sockMsg, args, commands, db) {
         if (!args[0]) return sockMsg.reply('Format:.settimezone Asia/Indonesian\nContoh lain: Asia/Makassar, Asia/Pontianak, Asia/Jayapura')
 
@@ -87,10 +87,10 @@ global.fake = {
 }
 
 global.my = {
-	Youtube: "",
-	Github: "https://github.com/RyxzMC24XShiroko",
-	WhatsApp: "",
-	Channel: ""
+	youtube: '',
+	Github: 'https://ryxzmc.vercel.app',
+	tele : 't.me/RyxzMC',
+	ch : '',
 }
 
 global.limit = {
@@ -125,12 +125,12 @@ global.mess = {
 }
 
 global.APIs = {
-	naze: 'https://api.naze.biz.id',
-	neosantara: 'https://api.neosantara.xyz/v1',
+	ryxz: 'https://api.ryxz.id',
+	nekobot: 'https://api.nekobot.xyz/v1',
 }
 global.APIKeys = {
-	'https://api.naze.biz.id': 'nz-298327ff62',
-	'https://api.neosantara.xyz/v1': 'API_KEY_NEOSANTARA_AI',
+	'https://api.neko.bin.id': 'nz-298327ff62',
+	'https://api.ryxz.xyz/': 'NEKOBOT_ACCES_ADMIN',
 }
 
 // Lainnya
